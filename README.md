@@ -19,6 +19,12 @@ cp -n .env.example .env
 
 ```
 composer install --ignore-platform-reqs
+npm install
+php artisan key:generate
+php artisan optimize
+php artisan migrate
+php artisan serve
+npm run dev
 ```
 
 ### instalando as dependencias com o docker utilizando o `Makefile`

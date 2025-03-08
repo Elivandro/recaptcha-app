@@ -42,14 +42,14 @@ GOOGLE_RECAPTCHA_SECRET=
 GOOGLE_RECAPTCHA_SITEKEY=
 ```
 
-### Para v2 utilize os seguintes codigos onde deseja o captcha
+### Para v2 utilize os seguintes codigos onde deseja o recaptcha
 
 ```
 {!! ReCaptcha::display() !!}
 {!! ReCaptcha::renderJs() !!}
 ```
 
-### Adicione o componente de erro do captcha
+### Adicione o componente de erro do recaptcha
 
 ```
 <x-input-error :messages="$errors->get('g-recaptcha-response')" />
@@ -74,19 +74,20 @@ public function rules(): array
 {!! ReCaptcha::display(['data-theme' => 'dark']) !!}
 ```
 
-### Para a v3 utilize os seguintes códigos onde deseja o captcha
+### v3 do recaptcha adicione um id no form, exemplo:
 
 ```
-{!! ReCaptcha::renderJs() !!}
+<form id="login">
+```
 
-{{-- para a v3 do recaptcha mantenha as propridades data-** no botão --}}
-<x-primary-button
-    class="ms-3 g-recaptcha"
-    data-sitekey="{{ config('captcha.sitekey') }}"
-    data-callback="onSubmit"
-    data-action="submit">
-    {{ __('Log in') }}
-</x-primary-button>
+### Utilize o seguinte código onde deseja o recaptcha
+
+```
+{{-- para a v3 do recaptcha, id do form, nome do botão e classes css --}}
+{!! ReCaptcha::displaySubmit('login', 'Log in', [
+    'class' =>
+        'ms-3 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150',
+]) !!}
 ```
 
 ### Sempre registre as Facades `config/app.php`

@@ -74,13 +74,13 @@ public function rules(): array
 {!! ReCaptcha::display(['data-theme' => 'dark']) !!}
 ```
 
-### v3 do recaptcha adicione um id no form, exemplo:
+### Adicione um id no form onde deseja o recaptcha, exemplo:
 
 ```
 <form id="login">
 ```
 
-### Utilize o seguinte código onde deseja o recaptcha
+### Adicione o seguinte codigo onde deseja o v3 do recaptcha, exemplo:
 
 ```
 {{-- para a v3 do recaptcha, id do form, nome do botão e classes css --}}
